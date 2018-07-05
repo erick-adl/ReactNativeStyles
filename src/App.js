@@ -5,6 +5,7 @@ import {
   Text,
   View,
   ScrollView,  
+  TouchableOpacity
 } from 'react-native';
 
 import Repo from '../components/Repo'
@@ -14,15 +15,15 @@ export default class App extends Component {
     repos:[
       {
         id: 1,
-        thumbnail: 'https://meuip.com',
+        thumbnail: 'https://avatars2.githubusercontent.com/u/29154501?s=400&u=119d28501875914a513d64a2a0161709a4b5fd27&v=4',
         title: 'erick.adl.com',
         author: 'erick',
       },
       {
         id: 2,
-        thumbnail: 'https://meuip2.com',
+        thumbnail: 'https://avatars2.githubusercontent.com/u/29154501?s=400&u=119d28501875914a513d64a2a0161709a4b5fd27&v=4',
         title: 'erick2.adl.com',
-        author: 'erick2',
+        author: 'lima',
       },
     ],
   };
@@ -33,10 +34,13 @@ export default class App extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.textHeader}>Header React Native</Text>
+          <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.headerButton}>+</Text>
+          </TouchableOpacity>
         </View>
-        <ScrollView contentContainerStyle={styles.repoList}>          
-          
-          {this.state.repos.map(repo => < Repo key={repo.id}/>)}
+        <ScrollView contentContainerStyle={styles.repoList}>
+
+          {this.state.repos.map(repo => < Repo key={repo.id} data ={repo}/>)}
 
         </ScrollView>        
       </View>
@@ -54,16 +58,28 @@ const styles = StyleSheet.create({
     height: (Platform === 'ios') ? 20 : 50,    
     paddingTop: (Platform === 'ios') ? 20 : 0,
     backgroundColor:'#FFF',
-    justifyContent: 'center',
-    alignItems:'center'
-
+    justifyContent: 'space-between',    
+    alignItems:'center',
+    flexDirection: 'row',
+    paddingHorizontal: 20
   },
-  textHeader: {
+
+  headerButton: {
     fontSize: 20,
+    fontWeight: 'bold'
+  },
+
+  textHeader: {
+    fontSize: 10,
     fontWeight: 'bold'
 
     },
   repoList: {
     padding: 20,
   }, 
+  textExample: {
+    fontSize: 20,
+    fontWeight: 'bold',    
+    color: '#666DDD',    
+  }
 });
