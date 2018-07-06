@@ -33,7 +33,7 @@ export default class App extends Component {
 
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.textHeader}>Header React Native</Text>
+          <Text style={styles.textHeader}>Lista de Repositorios</Text>
           <TouchableOpacity onPress={() => {}}>
           <Text style={styles.headerButton}>+</Text>
           </TouchableOpacity>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
 
   textHeader: {
-    fontSize: 10,
+    fontSize: 25,
     fontWeight: 'bold'
 
     },
